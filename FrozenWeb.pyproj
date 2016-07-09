@@ -6,11 +6,10 @@
     <ProjectGuid>8a701039-340c-4a09-8527-183fa8d86e66</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>example\run.py</StartupFile>
     <SearchPath>
     </SearchPath>
-    <WorkingDirectory>.</WorkingDirectory>
+    <WorkingDirectory>example</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>FrozenWeb</Name>
     <RootNamespace>frozen</RootNamespace>
@@ -27,6 +26,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="example\run.py" />
     <Compile Include="frozenweb\builder.py">
       <SubType>Code</SubType>
     </Compile>
@@ -56,6 +56,7 @@
     <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\3.5" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="example\" />
     <Folder Include="frozenweb\" />
   </ItemGroup>
   <PropertyGroup>

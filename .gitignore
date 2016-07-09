@@ -1,7 +1,9 @@
 *.pyc
+*.user
 
 /.vs
-
 /FrozenWeb.egg-info
 /dist
 /build
+/example/build
+
