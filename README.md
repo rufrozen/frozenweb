@@ -1,5 +1,8 @@
 # FrozenWeb
 
+[![Python Version](https://img.shields.io/badge/Python-3-brightgreen.svg?style=flat)](http://python.org)
+[![Jinja Version](https://img.shields.io/badge/Jinja-2-brightgreen.svg?style=flat)](http://jinja.pocoo.org)
+
 Simple static web site with Jinja2 on Python 3.5
 
 Automatically minimise html, css, js files
@@ -37,11 +40,11 @@ example:
     |-build
     |-site
         |-js
-            |-row.js
+            |-raw.js
             |-my.js.jtpl
         |-img
             |-icon.png
-        |-row.html
+        |-raw.html
         |-index.html.jtpl
     |-templates
         |-base.html
