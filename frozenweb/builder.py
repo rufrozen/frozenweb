@@ -13,7 +13,7 @@ class Builder:
 	def render_file(self, filepath):
 		if os.path.exists(filepath):
 			if self.need_minimise(filepath):
-				return to_bytes(self.minimise(read_text_file(filepath)))
+				return to_bytes(self.minimise(read_text_file(filepath), filepath))
 			else:
 				return read_binary_file(filepath)
 		jtplpath = filepath + self.config.jinja_file
