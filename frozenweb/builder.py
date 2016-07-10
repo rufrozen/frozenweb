@@ -16,10 +16,10 @@ class Builder:
 				return to_bytes(self.minimise(read_text_file(filepath)))
 			else:
 				return read_binary_file(filepath)
-		jtplpath = filepath + self.myserver.config.jinja_file
+		jtplpath = filepath + self.config.jinja_file
 		if os.path.exists(jtplpath):
 			content = self.renderer.render(jtplpath)
-			return to_bytes(self.minimise(content))
+			return to_bytes(self.minimise(content, filepath))
 		raise NotFoundError
 
 	def need_minimise(self, filepath):
