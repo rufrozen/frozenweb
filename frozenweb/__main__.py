@@ -1,6 +1,5 @@
-from . import *
+from frozenweb.main import main
+
 
 if __name__ == "__main__":
-	cc = config.Config()
-	cc.parse();
-	cc.run()
+    main()

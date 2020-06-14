@@ -1,0 +1,11 @@
+[.html]
+jinja=true
+minimise=true
+
+[.js]
+jinja=true
+minimise=true
+
+[.css]
+jinja=true
+minimise=true

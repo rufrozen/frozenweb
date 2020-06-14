@@ -3,7 +3,7 @@
 [![Python Version](https://img.shields.io/badge/Python-3-brightgreen.svg?style=flat)](http://python.org)
 [![Jinja Version](https://img.shields.io/badge/Jinja-2-brightgreen.svg?style=flat)](http://jinja.pocoo.org)
 
-Simple static web site with Jinja2 on Python 3.5
+Simple static web site with Jinja2 on Python 3.5+
 
 Automatically minimise html, css, js files
 
@@ -14,38 +14,41 @@ Automatically minimise html, css, js files
 Dependencies: **Jinja2**, **htmlmin**, **jsmin**, **cssmin**
 
 ## Usage
-
-help
-
-    python -m frozenweb
-
-build static site
-
-    python -m frozenweb -s -c context.py
-
-run http web server
-
-    python -m frozenweb -b -c context.py
+* build static site
+  ```
+  python -m frozenweb --build --context example/context.py --templates-folder example/templates --site-folder example/site --build-folder example/build
+  ```
+* run http web server
+  ```
+  python -m frozenweb --server --context example/context.py --templates-folder example/templates --site-folder example/site
+  ```
 
 ## Folder structure
 
-* **templates** folder contains Base Template of Jinja2
+* **.frozen** config file
+  ```
+  [extension or file name]
+  minimise=true // enable minimise content for css, js or html
+  jinja=true // enable jinja tempates
+  ```
+* **templates** folder contains Jinja2 templates
 * **site** folder contains site content
-  * **.jtpl** files will be rendered via Jinja2
-* **build** folder used for building static site
+* **build** output folder for building static site
 * **context.py** file contains dictionary for Jinja2 template.render
 
-example: 
+example:
 
     |-build
     |-site
+        |-.frozen
         |-js
+            |-.frozen
             |-raw.js
-            |-my.js.jtpl
+            |-my.js
         |-img
             |-icon.png
         |-raw.html
-        |-index.html.jtpl
+        |-index.html
     |-templates
         |-base.html
     |-context.py
