@@ -27,6 +27,8 @@ class Builder:
             return read_binary_file(config.path)
 
     def minimise(self, content, extension):
+        if self.config.args.no_minimise:
+            return content
         if extension == '.html':
             return htmlmin.minify(
                 content,

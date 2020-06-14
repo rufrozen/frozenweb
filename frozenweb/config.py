@@ -14,7 +14,6 @@ class Config:
         self.build_root = os.path.abspath(args.build_folder)
         self.site_root = os.path.abspath(args.site_folder)
         self.template_root = os.path.abspath(args.templates_folder)
-        self.ignore = []
         self.context = {}
         if args.context:
             contextpath = os.path.abspath(args.context)
