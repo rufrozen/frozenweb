@@ -4,13 +4,17 @@ from frozenweb.builder import Builder
 from frozenweb.config import NotFoundError
 
 mimetypes.init()
+mimetypes.types_map["otf"] = "font/otf"
+mimetypes.types_map["ttf"] = "font/ttf"
+mimetypes.types_map["woff"] = "font/woff"
+mimetypes.types_map["woff2"] = "font/woff2"
 
 
 def find_mimetype(extension):
     if extension in mimetypes.types_map:
         return mimetypes.types_map[extension]
     else:
-        return 'application/' + extension[1:]
+        return "application/octet-stream"
 
 
 class ServerHandler(http.server.BaseHTTPRequestHandler):
@@ -20,7 +24,8 @@ class ServerHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         try:
-            file_config = self.myserver.config.get_config(self.path)
+            path = self.path.split("?")[0]
+            file_config = self.myserver.config.get_config(path)
             filemime = find_mimetype(file_config.extension)
             content = self.myserver.builder.render_file(file_config)
             self.send_response(200)

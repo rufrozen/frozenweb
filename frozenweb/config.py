@@ -27,7 +27,7 @@ class Config:
         if path.startswith("/"):
             path = path[1:]
         if path.endswith("/"):
-            path = path[:1]
+            path = path[:-1]
         root = self.root_folder()
         for name in path.split("/"):
             if isinstance(root, FileConfig):
@@ -64,6 +64,10 @@ class FileConfig:
     @property
     def jinja(self):
         return self.get_bool("jinja")
+
+    @property
+    def skip(self):
+        return self.get_bool("skip")
 
 
 class FolderConfig:

@@ -32,9 +32,9 @@ class Builder:
         if extension == '.html':
             return htmlmin.minify(
                 content,
-                remove_comments=True,
+                remove_comments=False,
                 remove_empty_space=True,
-                remove_all_empty_space=True,
+                remove_all_empty_space=False,
                 remove_optional_attribute_quotes=False,
                 keep_pre=True
             )
@@ -49,6 +49,8 @@ class Builder:
         return os.path.join(self.config.build_root, relpath)
 
     def build_file(self, config: FileConfig):
+        if config.skip:
+            return
         content = self.render_file(config)
         write_binary_file(self.target_path(config), content)
 
